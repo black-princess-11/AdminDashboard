@@ -1,5 +1,5 @@
 {
-  "name": "admin-bashboard-backend",
+  "name": "admin-dashboard-backend",
   "version": "1.0.0",
   "description": "Admin Dashboard your Dashboard",
   "license": "ISC",
@@ -12,5 +12,8 @@
   "dependencies": {
     "express": "^5.3.0",
     "mongoose": "^9.11.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }
