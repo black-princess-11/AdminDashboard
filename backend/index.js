@@ -1,26 +1,29 @@
-
 const express = require("express");
+const cors = require("cors");
 const connectToMongo = require("./db");
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
-// Your existing routes here
+connectToMongo();
 
-const PORT = 5000;
+// Test API
+app.get("/", (req, res) => {
+    res.send("Backend Connected Successfully");
+});
 
-const startServer = async () => {
-    try {
-        await connectToMongo();
+// Registration API
+app.post("/register", (req, res) => {
+    console.log(req.body);
 
-        app.listen(PORT, () => {
-            console.log(`Server running on port ${PORT}`);
-        });
+    res.json({
+        message: "Registration Successful",
+        user: req.body
+    });
+});
 
-    } catch (error) {
-        console.log("Server Error:", error.message);
-    }
-};
-
-startServer();
+app.listen(5000, () => {
+    console.log("Server running on port 5000");
+});
